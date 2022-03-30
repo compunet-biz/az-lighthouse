@@ -1,0 +1,154 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mspOfferName": {
+        "type": "string",
+        "defaultValue": "CompuNet Azure Support"
+    },
+    "mspOfferDescription": {
+      "type": "string",
+      "defaultValue": "CompuNet Azure Support description..."
+    },
+    "managedByTenantId": {
+      "type": "string",
+      "defaultValue": "d4d76e39-e33d-45e4-835c-f6f4f74b5560"
+    },
+    "authorizations": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+          "principalIdDisplayName": "CompuNet Read-Only Support"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "00c29273-979b-4161-815c-10b084fb9324",
+          "principalIdDisplayName": "CompuNet Backup Support"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "73c42c96-874c-492b-b04d-ab87d138a893",
+          "principalIdDisplayName": "CompuNet Operations Readers"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "8d289c81-5878-46d4-8554-54e1e3d8b5cb",
+          "principalIdDisplayName": "CompuNet Operations Readers"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "00c29273-979b-4161-815c-10b084fb9324",
+          "principalIdDisplayName": "CompuNet Backup Operations"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "d3881f73-407a-4167-8283-e981cbba0404",
+          "principalIdDisplayName": "CompuNet Automation Operations"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "434105ed-43f6-45c7-a02f-909b2ba83430",
+          "principalIdDisplayName": "CompuNet Cost Management"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "4a9ae827-6dc8-4573-8ac7-8239d42aa03f",
+          "principalIdDisplayName": "CompuNet Tag Operations"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "4abbcc35-e782-43d8-92c5-2d3f1bd2253f",
+          "principalIdDisplayName": "CompuNet Kubernetes Operations"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "CompuNet Elevated Operations"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8",
+          "principalIdDisplayName": "CompuNet Kubernetes Management"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "CompuNet Elevated Management"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608",
+          "principalIdDisplayName": "CompuNet Policy Management"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "principalIdDisplayName": "CompuNet Policy Remediation Management",
+          "delegatedRoleDefinitionIds": [
+            "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+            "9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+            "5e467623-bb1f-42f4-a55d-6e525e11384b",
+            "749f88d5-cbae-40b8-bcfc-e573ddc772fa",
+            "fb1c8493-542b-48eb-b624-b4c8fea62acd",
+            "b24988ac-6180-42a0-ab88-20f7382dd24c"
+          ]
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "41077137-e803-4205-871c-5a86e6a753b4",
+          "principalIdDisplayName": "CompuNet Blueprint Management"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "437d2ced-4a38-4302-8479-ed2bcb43d090",
+          "principalIdDisplayName": "CompuNet Blueprint Assignments"
+        },
+        {
+          "principalId": "<guid>",
+          "roleDefinitionId": "fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64",
+          "principalIdDisplayName": "CompuNet Billing Integration"
+        }
+      ]
+    }
+  },
+  "variables": {
+    "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+    "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ManagedServices/registrationDefinitions",
+      "apiVersion": "2019-09-01",
+      "name": "[variables('mspRegistrationName')]",
+      "properties": {
+        "registrationDefinitionName": "[parameters('mspOfferName')]",
+        "description": "[parameters('mspOfferDescription')]",
+        "managedByTenantId": "[parameters('managedByTenantId')]",
+        "authorizations": "[parameters('authorizations')]"
+      }
+    },
+    {
+      "type": "Microsoft.ManagedServices/registrationAssignments",
+      "apiVersion": "2019-09-01",
+      "name": "[variables('mspAssignmentName')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+      ],
+      "properties": { 
+        "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+      }
+    }
+  ],
+  "outputs": {
+    "mspOfferName": {
+      "type": "string",
+      "value": "parameters('mspOfferName')"
+    },
+    "authorizations": {
+      "type": "array",
+      "value": "[parameters('authorizations')]"
+    }
+  }
+}
