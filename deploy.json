@@ -8,7 +8,7 @@
     },
     "mspOfferDescription": {
       "type": "string",
-      "defaultValue": "CompuNet Azure Support description..."
+      "defaultValue": "CompuNet Azure Support during Graphic Products project."
     },
     "managedByTenantId": {
       "type": "string",
@@ -18,14 +18,14 @@
       "type": "array",
       "defaultValue": [
         {
-          "principalId": "b874eb98-ded0-4db1-8960-e566d81e0e22",
-          "roleDefinitionId": "cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e",
-          "principalIdDisplayName": "CompuNet Support API"
-        },
-        {
           "principalId": "ae2ec1ef-b6f6-4e64-b5d1-707608195c76",
           "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-          "principalIdDisplayName": "AHughes Contributor"
+          "principalIdDisplayName": "AHughes (Contributor)"
+        },
+        {
+          "principalId": "d41d5890-00fd-4fa9-b739-821d8e5f33e8",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "GLinn (Contributor)"
         }
       ]
     }
