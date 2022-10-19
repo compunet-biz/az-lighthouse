@@ -41,13 +41,8 @@ CompuNet Automation Operations | [Automation Operator] | `d3881f73-407a-4167-828
 CompuNet Cost Management | [Cost Management Contributor] | `434105ed-43f6-45c7-a02f-909b2ba83430`
 CompuNet Tag Operations | [Tag Contributor] | `4a9ae827-6dc8-4573-8ac7-8239d42aa03f`
 CompuNet Kubernetes Operations | [AKS Cluster User] | `4abbcc35-e782-43d8-92c5-2d3f1bd2253f`
-CompuNet Elevated Operations | [Contributor] | `b24988ac-6180-42a0-ab88-20f7382dd24c`
-CompuNet Kubernetes Management | [AKS Cluster Admin] | `0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8`
-CompuNet Elevated Management | [Contributor] | `b24988ac-6180-42a0-ab88-20f7382dd24c`
 CompuNet Policy Management | [Resource Policy Contributor] | `36243c78-bf99-498c-9df9-86d9f8d28608`
 CompuNet Policy Remediation Management | [User Access Administrator]* | `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`
-CompuNet Blueprint Management | [Blueprint Contributor] | `41077137-e803-4205-871c-5a86e6a753b4`
-CompuNet Blueprint Assignements | [Blueprint Operator] | `437d2ced-4a38-4302-8479-ed2bcb43d090`
 CompuNet Billing Integration | [Billing Reader] | `fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64`
 
 *_CompuNet Policy Remediation Management, delegated the **User Access Administrator** role, is limited to assigning managed identities the following RBAC roles ([Learn more][1])_:
@@ -60,6 +55,15 @@ Assignable Role | RBAC Role ID
 [Monitoring Contributor] | `749f88d5-cbae-40b8-bcfc-e573ddc772fa`
 [Security Admin] | `fb1c8493-542b-48eb-b624-b4c8fea62acd`
 [Contributor] | `b24988ac-6180-42a0-ab88-20f7382dd24c`
+
+## Eligible Authorizations
+Authorization Display Name | Azure Built-in RBAC Role | RBAC Role ID | Max Activation Time | Approval Required?
+--- | --- | --- | --- | ---
+CompuNet Elevated Operations | [Contributor] | `b24988ac-6180-42a0-ab88-20f7382dd24c` | 8 hours | False
+CompuNet Kubernetes Management | [AKS Cluster Admin] | `0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8` | 4 hours | False
+CompuNet Elevated Management | [Contributor] | `b24988ac-6180-42a0-ab88-20f7382dd24c` | 30 minutes | False
+CompuNet Blueprint Management | [Blueprint Contributor] | `41077137-e803-4205-871c-5a86e6a753b4` | 30 minutes | True
+CompuNet Blueprint Assignements | [Blueprint Operator] | `437d2ced-4a38-4302-8479-ed2bcb43d090` | 30 minutes | True
 
 <!-- Hyperlinks -->
 [Reader]: https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader

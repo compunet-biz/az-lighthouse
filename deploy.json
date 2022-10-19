@@ -64,21 +64,6 @@
         },
         {
           "principalId": "<guid>",
-          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-          "principalIdDisplayName": "CompuNet Elevated Operations"
-        },
-        {
-          "principalId": "<guid>",
-          "roleDefinitionId": "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8",
-          "principalIdDisplayName": "CompuNet Kubernetes Management"
-        },
-        {
-          "principalId": "<guid>",
-          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-          "principalIdDisplayName": "CompuNet Elevated Management"
-        },
-        {
-          "principalId": "<guid>",
           "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608",
           "principalIdDisplayName": "CompuNet Policy Management"
         },
@@ -97,18 +82,70 @@
         },
         {
           "principalId": "<guid>",
+          "roleDefinitionId": "fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64",
+          "principalIdDisplayName": "CompuNet Billing Integration"
+        }
+      ]
+    },
+    "eligibleAuthorizations": {
+      "type": "array",
+      "defaultValue": [
+        {
+          "justInTimeAccessPolicy": {
+              "multiFactorAuthProvider": "Azure",
+              "maximumActivationDuration": "PT8H"
+          },
+          "principalId": "<guid>",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "CompuNet Elevated Operations"
+        },
+        {
+          "justInTimeAccessPolicy": {
+              "multiFactorAuthProvider": "Azure",
+              "maximumActivationDuration": "PT4H"
+          },
+          "principalId": "<guid>",
+          "roleDefinitionId": "0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8",
+          "principalIdDisplayName": "CompuNet Kubernetes Management"
+        },
+        {
+          "justInTimeAccessPolicy": {
+              "multiFactorAuthProvider": "Azure",
+              "maximumActivationDuration": "PT30M"
+          },
+          "principalId": "<guid>",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "CompuNet Elevated Management"
+        },
+        {
+          "justInTimeAccessPolicy": {
+              "multiFactorAuthProvider": "Azure",
+              "maximumActivationDuration": "PT30M",
+              "managedByTenantApprovers": [
+                {
+                  "principalId": "<guid>",
+                  "principalIdDisplayName": "Eligible Authorization Approvers"
+                }
+              ]
+          },
+          "principalId": "<guid>",
           "roleDefinitionId": "41077137-e803-4205-871c-5a86e6a753b4",
           "principalIdDisplayName": "CompuNet Blueprint Management"
         },
         {
+          "justInTimeAccessPolicy": {
+            "multiFactorAuthProvider": "Azure",
+            "maximumActivationDuration": "PT30M",
+            "managedByTenantApprovers": [
+              {
+                "principalId": "<guid>",
+                "principalIdDisplayName": "Eligible Authorization Approvers"
+              }
+            ]
+        },
           "principalId": "<guid>",
           "roleDefinitionId": "437d2ced-4a38-4302-8479-ed2bcb43d090",
           "principalIdDisplayName": "CompuNet Blueprint Assignments"
-        },
-        {
-          "principalId": "<guid>",
-          "roleDefinitionId": "fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64",
-          "principalIdDisplayName": "CompuNet Billing Integration"
         }
       ]
     }
@@ -126,7 +163,8 @@
         "registrationDefinitionName": "[parameters('mspOfferName')]",
         "description": "[parameters('mspOfferDescription')]",
         "managedByTenantId": "[parameters('managedByTenantId')]",
-        "authorizations": "[parameters('authorizations')]"
+        "authorizations": "[parameters('authorizations')]",
+        "eligibleAuthorizations": "[parameters('eligibleAuthorizations')]"
       }
     },
     {
