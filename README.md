@@ -1,5 +1,5 @@
 # Click this button to deploy Lighthouse template
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcompunet-biz%2Faz-lighthouse%2Fmain%2Fdeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcompunet-biz%2Faz-lighthouse%2Froyjay%2Fdeploy.json)
 
 ## Description
 Azure Lighthouse provides CompuNet delegated access to subscriptions in your Azure environment, facilitating project work and ongoing support—all while leaving your organization in control. Lighthouse eliminates the need to create administrator accounts for CompuNet engineers in your organization's Azure AD tenant and establishes a secure partner relationship, providing greater visibility of CompuNet's access and actions.
