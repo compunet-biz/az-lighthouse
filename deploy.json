@@ -19,13 +19,23 @@
       "defaultValue": [
         {
           "principalId": "1dedfc7c-c7e3-4a21-9ddc-4f43bc811d34",
-          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-          "principalIdDisplayName": "Support Group (Contributor)"
+          "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+          "principalIdDisplayName": "Support Group (Reader)"
         },
         {
           "principalId": "1dedfc7c-c7e3-4a21-9ddc-4f43bc811d34",
           "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
           "principalIdDisplayName": "Lighthouse Registration Deletion"
+        },
+        {
+          "principalId": "ae2ec1ef-b6f6-4e64-b5d1-707608195c76",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "AHughes (Contributor)"
+        },
+        {
+          "principalId": "ca21159b-39ee-4687-81ef-ee11f1f82b09",
+          "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+          "principalIdDisplayName": "BMartin (Contributor)"
         }
       ]
     }
