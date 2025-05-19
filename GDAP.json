@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+	"variables": {
+        "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]"
+    },
+    "resources": [
+		{
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2022-04-01",
+            "name": "[newGuid()]",
+            "properties": {
+                "roleDefinitionId": "[variables('Owner')]",
+                "principalId": "db07304a-44d9-4674-8eb3-5550b458e6b2",
+				"principalType": "ForeignGroup"
+            }
+        }
+	]
+}
